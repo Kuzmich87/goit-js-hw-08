@@ -13,6 +13,7 @@ const FORM__KEY = 'feedback-form-state';
 const formData = {};
 dataFromLocalStorage()
 
+
 function onFormData(e) {
   formData[e.target.name] = e.target.value;
   localStorage.setItem(FORM__KEY, JSON.stringify(formData));
@@ -30,11 +31,10 @@ function onSubmitForm(e) {
 function dataFromLocalStorage() {
   const data = JSON.parse(localStorage.getItem(FORM__KEY));
     if (data) {
-    email.value = data.email;
-    message.value = data.message;
+    email.value = data.email || '';
+    message.value = data.message || '';
   }
 };
-
 
 
 
